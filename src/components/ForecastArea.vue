@@ -61,7 +61,7 @@
       line-height: 68px;
       font-size: 18px;
       &:hover {
-        background-color: #333;
+        background-color: #505050;
         color: #fff;
       }
     }
