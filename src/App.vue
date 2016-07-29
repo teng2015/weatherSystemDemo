@@ -45,8 +45,8 @@ export default {
     top:60px;
     width:100%;
     bottom:330px;
-    overflow:hidden;
-    left:0px;
+    overflow: hidden;
+    left: 0;
     background:#ccc;
   }
   footer{   
