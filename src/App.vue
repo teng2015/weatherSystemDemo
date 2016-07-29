@@ -3,7 +3,7 @@
   <admin-header></admin-header>
   <div class="maincontainer">
     <left-menu></left-menu>
-    <router-view  transion="fade" transion-mode="out-in" keep-alive></router-view>
+    <router-view  transion="fade" transion-mode="out-in"></router-view>
   </div>
   <footer>
     <forecast-area></forecast-area>
