@@ -7,6 +7,8 @@
   </div>
   <footer>
     <forecast-area></forecast-area>
+    <live-weather></live-weather>
+    <charts></charts>
   </footer>
 </template>
 
@@ -19,6 +21,8 @@ import AdminHeader from 'components/AdminHeader.vue'
 import LeftMenu from 'components/LeftMenu.vue'
 import ForecastArea from 'components/ForecastArea.vue'
 import ForecastModal from 'components/ForecastModal.vue'
+import LiveWeather from 'components/LiveWeather.vue'
+import Charts from 'components/Charts.vue'
 
 export default {
   store,
@@ -26,7 +30,9 @@ export default {
     AdminHeader,
     LeftMenu,
     ForecastArea,
-    ForecastModal
+    ForecastModal,
+    LiveWeather,
+    Charts
   }
 }
 </script>
@@ -56,9 +62,9 @@ export default {
     left:0;
     width:100%;
     height:330px;
-    overflow:hidden;
     background:#eee;
     min-width:980px;
+    overflow: visible;
   }
   .fade-transition {
   transition: opacity .3s ease;

@@ -5,6 +5,9 @@
     </div>
     <div class="menu-station">
       <ul class="all-station">
+        <li>
+          <a href="javascript:void(0)">全部气象站</a>
+        </li>
         <li v-for="n in 20">
           <a href="javascript:void(0)">第{{ $index+1 }}气象站</a>
         </li>
@@ -20,9 +23,7 @@
 </script>
 
 <style lang="less" scoped>
-  // 设置滚动条
-  ::-webkit-scrollbar {
-    width: 14px;
+  .common-bgc() {
     background: #3a3633;
     background: -moz-linear-gradient(left, #3a3633 93%, #2a2725 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(93%, #3a3633), color-stop(100%, #2a2725));
@@ -30,6 +31,11 @@
     background: -o-linear-gradient(left, #3a3633 93%, #2a2725 100%);
     background: -ms-linear-gradient(left, #3a3633 93%, #2a2725 100%);
     background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+  }
+  // 设置滚动条
+  ::-webkit-scrollbar {
+    width: 14px;
+    .common-bgc();
   }
   ::-webkit-scrollbar-thumb {
     background-color: rgb(110,110,110);
@@ -44,13 +50,7 @@
     height: 100%;
     position:absolute;
     display: block;
-    background: #3a3633;
-    background: -moz-linear-gradient(left, #3a3633 93%, #2a2725 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(93%, #3a3633), color-stop(100%, #2a2725));
-    background: -webkit-linear-gradient(left, #3a3633 93%, #2a2725 100%);
-    background: -o-linear-gradient(left, #3a3633 93%, #2a2725 100%);
-    background: -ms-linear-gradient(left, #3a3633 93%, #2a2725 100%);
-    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+    .common-bgc();
   }
   .county {
     height: 60px;
@@ -80,7 +80,7 @@
         line-height: 68px;
         font-size: 18px;
         &:hover {
-          background-color: #333;
+          background-color: #505050;
           color: #fff;
         }
       }
