@@ -1,15 +1,17 @@
 <template>
-  <forecast-modal></forecast-modal>
-  <admin-header></admin-header>
-  <div class="maincontainer">
-    <left-menu></left-menu>
-    <router-view  transion="fade" transion-mode="out-in"></router-view>
+  <div class="body">
+    <forecast-modal></forecast-modal>
+    <admin-header></admin-header>
+    <div class="maincontainer">
+      <left-menu></left-menu>
+      <router-view transion="fade" transion-mode="out-in"></router-view>
+    </div>
+    <footer>
+      <forecast-area></forecast-area>
+      <live-weather></live-weather>
+      <charts></charts>
+    </footer>
   </div>
-  <footer>
-    <forecast-area></forecast-area>
-    <live-weather></live-weather>
-    <charts></charts>
-  </footer>
 </template>
 
 <script>
