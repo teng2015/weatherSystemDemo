@@ -18,7 +18,7 @@
 import 'leaflet/dist/leaflet.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'assets/style/reset.css'
-import store from './vuex/store.js'
+import store from '../vuex/store.js'
 import AdminHeader from 'components/AdminHeader.vue'
 import LeftMenu from 'components/LeftMenu.vue'
 import ForecastArea from 'components/ForecastArea.vue'
