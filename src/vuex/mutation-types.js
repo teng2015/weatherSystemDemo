@@ -1,2 +1,5 @@
+// 打开或关闭预报框
 export const FORECAST_MODAL_SHOW_HIDE = 'FORECAST_MODAL_SHOW_HIDE'
 
+// 改变当前选中站点
+export const CHANGE_CURRENT_STATION = 'CHANGE_CURRENT_STATION'

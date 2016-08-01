@@ -2,7 +2,7 @@
   <div class="pick-area" v-show="show" transition="pick-area" transition-mode="out-in" :style="{'left':x+'px','top':y+'px'}">
     <ul>
       <li v-for="item in usuallyData">
-        <a class="btn btn-default btn-user" :class="{'current-selected': item.selected}" @click="select($index, $event)">{{ item.name }}</a>
+        <a class="btn btn-default btn-user" :class="{'current-selected': item.selected, 'btn-user-3': $index == 4 || $index == 5 || $index == 6 || $index == 23 || $index == 24 || $index == 25}" @click="select($index, $event)">{{ item.name }}</a>
       </li>
     </ul>
     <div class="user-periodtime">
@@ -57,6 +57,15 @@
       cancelSelect () {
         this.usuallyData[this.currentSlected]['selected'] = false
         this.currentSlected = -1
+      },
+      returnSelectDate (index) {
+        /* let date = new Date()
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let day = date.getDate()
+        switch (index) {
+          case 0:
+        } */
       }
     }
   }
@@ -101,6 +110,9 @@
     text-align: center;
     padding: 5px 0;
     margin: 4px 4px;
+  }
+  .btn-user-3 {
+    width: 69px;
   }
   .user-periodtime {
     p {

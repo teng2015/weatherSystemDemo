@@ -18,7 +18,6 @@
 import 'leaflet/dist/leaflet.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'assets/style/reset.css'
-import store from '../vuex/store.js'
 import AdminHeader from 'components/AdminHeader.vue'
 import LeftMenu from 'components/LeftMenu.vue'
 import ForecastArea from 'components/ForecastArea.vue'
@@ -27,7 +26,6 @@ import LiveWeather from 'components/LiveWeather.vue'
 import Charts from 'components/Charts.vue'
 
 export default {
-  store,
   components: {
     AdminHeader,
     LeftMenu,
@@ -67,11 +65,5 @@ export default {
     background:#eee;
     min-width:980px;
     overflow: visible;
-  }
-  .fade-transition {
-  transition: opacity .3s ease;
-  }
-  .fade-enter, .fade-leave {
-  opacity: 0;
   }
 </style>

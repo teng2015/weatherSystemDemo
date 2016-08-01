@@ -6,10 +6,10 @@
     <div class="menu-station">
       <ul class="all-station">
         <li>
-          <a href="javascript:void(0)">全部气象站</a>
+          <a href="javascript:void(0)" @click="changeCurrentStation(-1)" :class="{'active-station': getCurrentStation == -1}">全部气象站</a>
         </li>
         <li v-for="n in 20">
-          <a href="javascript:void(0)">第{{ $index+1 }}气象站</a>
+          <a href="javascript:void(0)" @click="changeCurrentStation($index)" :class="{'active-station': getCurrentStation == $index}">第{{ $index+1 }}气象站</a>
         </li>
       </ul>
     </div>
@@ -17,8 +17,17 @@
 </template>
 
 <script>
+  import { getCurrentStation } from '../vuex/getters.js'
+  import { changeCurrentStation } from '../vuex/actions.js'
   export default {
-
+    vuex: {
+      getters: {
+        getCurrentStation
+      },
+      actions: {
+        changeCurrentStation
+      }
+    }
   }
 </script>
 
@@ -85,5 +94,9 @@
         }
       }
     }
+  }
+  .active-station {
+    background-color: #505050;
+    color: #fff;
   }
 </style>
