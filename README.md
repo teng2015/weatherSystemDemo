@@ -1,6 +1,6 @@
-# webgisdemo1
+# weatherSystemDemo
 
-> A Vue.js project
+> 一个基于Vue、Vue-router、Vuex、Leaflet、webpack的农业气象服务管理系统
 
 ## Build Setup
 
