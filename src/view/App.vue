@@ -8,12 +8,3 @@
     store
   }
 </script>
-
-<style lang="less">
-  .fade-transition {
-  transition: opacity .3s ease;
-  }
-  .fade-enter, .fade-leave {
-  opacity: 0;
-  }
-</style>

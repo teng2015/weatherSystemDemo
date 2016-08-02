@@ -33,15 +33,18 @@
     },
     computed: {
       filterPickShow () {
-        return this.pickValue
-        /* let pickValue = this.pickValue
-        let start = pickValue.slice(0, 10)
-        let end = pickValue.slice(13, 23)
-        if (start === end) {
-          return start
+        let pickValue = this.pickValue
+        if (pickValue.length > 10) {
+          let start = pickValue.slice(0, 10)
+          let end = pickValue.slice(13, 23)
+          if (start === end) {
+            return start
+          } else {
+            return pickValue
+          }
         } else {
           return pickValue
-        } */
+        }
       }
     },
     components: {

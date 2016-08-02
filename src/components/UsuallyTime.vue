@@ -7,18 +7,20 @@
     </ul>
     <div class="user-periodtime">
       <p class="pull-left">自定义时段：</p>
-      <input type="number" class="time-input pull-left" @click.stop="cancelSelect" step="1" min="0" max="23" value="8" />
+      <input type="number" class="time-input pull-left" @click.stop="cancelSelect" step="1" min="0" :max="currentHour - 1" v-model="userBegin" />
       <p class="pull-left">&nbsp;~&nbsp;</p>
-      <input type="number" class="time-input pull-left" @click.stop="cancelSelect" step="1" min="1" max="24" value="10"></div>
-      <p class="pull-left">&nbsp;时</p>
-      <div class="decide-button">
-        <button>确定</button>
-      </div>
+      <input type="number" class="time-input pull-left" @click.stop="cancelSelect" step="1" min="1" :max="currentHour" v-model="userEnd" />
+    </div>
+    <p class="pull-left">&nbsp;时</p>
+    <div class="decide-button">
+      <button @click="ok">确定</button>
+    </div>
   </div>
 </template>
 
 <script>
   import { selectTimeData } from 'assets/json/selectTimeData.js'
+  import { getSecondMonthDays, zero } from '../util/dateUtil.js'
   export default {
     props: {
       show: {
@@ -43,7 +45,15 @@
     data () {
       return {
         usuallyData: selectTimeData,
-        currentSlected: -1
+        currentSlected: -1,
+        userBegin: 8,
+        userEnd: 10
+      }
+    },
+    computed: {
+      currentHour () {
+        let date = new Date()
+        return date.getHours()
       }
     },
     methods: {
@@ -53,19 +63,79 @@
         }
         this.usuallyData[index]['selected'] = true
         this.currentSlected = index
+        this.value = this.returnSelectDate(index)
       },
       cancelSelect () {
-        this.usuallyData[this.currentSlected]['selected'] = false
-        this.currentSlected = -1
+        if (this.currentSlected !== -1) {
+          this.usuallyData[this.currentSlected]['selected'] = false
+          this.currentSlected = -1
+        }
+      },
+      ok () {
+        this.cancelSelect()
+        if (parseInt(this.userBegin) > parseInt(this.userEnd)) {
+          this.value = zero(this.userEnd) + ':00 ~ ' + zero(this.userBegin) + ':00'
+        } else {
+          this.value = zero(this.userBegin) + ':00 ~ ' + zero(this.userEnd) + ':00'
+        }
       },
       returnSelectDate (index) {
-        /* let date = new Date()
+        let date = new Date()
         let year = date.getFullYear()
-        let month = date.getMonth() + 1
-        let day = date.getDate()
         switch (index) {
           case 0:
-        } */
+            return '1小时'
+          case 1:
+            return '3小时'
+          case 2:
+            return '6小时'
+          case 3:
+            return '12小时'
+          case 4:
+            return '今天'
+          case 5:
+            return '昨天'
+          case 6:
+            return '前天'
+          case 7:
+            return year + '-' + '01' + '-' + '01' + ' ~ ' + year + '-' + '01' + '-' + '31'
+          case 8:
+            return year + '-' + '02' + '-' + '01' + ' ~ ' + year + '-' + '02' + '-' + getSecondMonthDays(year)
+          case 9:
+            return year + '-' + '03' + '-' + '01' + ' ~ ' + year + '-' + '03' + '-' + '31'
+          case 10:
+            return year + '-' + '04' + '-' + '01' + ' ~ ' + year + '-' + '04' + '-' + '30'
+          case 11:
+            return year + '-' + '05' + '-' + '01' + ' ~ ' + year + '-' + '05' + '-' + '31'
+          case 12:
+            return year + '-' + '06' + '-' + '01' + ' ~ ' + year + '-' + '06' + '-' + '30'
+          case 13:
+            return year + '-' + '07' + '-' + '01' + ' ~ ' + year + '-' + '07' + '-' + '31'
+          case 14:
+            return year + '-' + '08' + '-' + '01' + ' ~ ' + year + '-' + '08' + '-' + '31'
+          case 15:
+            return year + '-' + '09' + '-' + '01' + ' ~ ' + year + '-' + '09' + '-' + '30'
+          case 16:
+            return year + '-' + '10' + '-' + '01' + ' ~ ' + year + '-' + '10' + '-' + '31'
+          case 17:
+            return year + '-' + '11' + '-' + '01' + ' ~ ' + year + '-' + '11' + '-' + '30'
+          case 18:
+            return year + '-' + '12' + '-' + '01' + ' ~ ' + year + '-' + '12' + '-' + '31'
+          case 19:
+            return year + '-' + '01' + '-' + '01' + ' ~ ' + year + '-' + '03' + '-' + '31'
+          case 20:
+            return year + '-' + '04' + '-' + '01' + ' ~ ' + year + '-' + '06' + '-' + '30'
+          case 21:
+            return year + '-' + '07' + '-' + '01' + ' ~ ' + year + '-' + '09' + '-' + '30'
+          case 22:
+            return year + '-' + '10' + '-' + '01' + ' ~ ' + year + '-' + '12' + '-' + '31'
+          case 23:
+            return year + '-' + '01' + '-' + '01' + ' ~ ' + year + '-' + '06' + '-' + '30'
+          case 24:
+            return year + '-' + '07' + '-' + '01' + ' ~ ' + year + '-' + '12' + '-' + '31'
+          case 25:
+            return year + '-' + '01' + '-' + '01' + ' ~ ' + year + '-' + '12' + '-' + '31'
+        }
       }
     }
   }
