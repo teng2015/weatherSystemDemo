@@ -7,6 +7,7 @@
       <usually-time :show.sync="usuallyTimeshow" :value.sync="pickValue" :x="x2" :y="y2"></usually-time>
       <button class="btn btn-primary pick-day" @click="showCalendar">选择日期</button>
       <button class="btn btn-primary pick-usually" @click="showUsuallyTime">常用时间</button>
+      <button class="btn btn-primary btn-lg btn-query" @click="query">查询</button>
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import 'font-awesome/css/font-awesome.min.css'
   import Calendar from 'components/calendar.vue'
   import UsuallyTime from 'components/UsuallyTime.vue'
+  import { transformDate } from '../../util/dateUtil.js'
   export default {
     data () {
       return {
@@ -34,9 +36,9 @@
     computed: {
       filterPickShow () {
         let pickValue = this.pickValue
-        if (pickValue.length > 10) {
+        if (pickValue.length > 15) {
           let start = pickValue.slice(0, 10)
-          let end = pickValue.slice(13, 23)
+          let end = pickValue.slice(13)
           if (start === end) {
             return start
           } else {
@@ -45,6 +47,10 @@
         } else {
           return pickValue
         }
+      },
+      queryValue () {
+        let date = transformDate(this.filterPickShow)
+        return date
       }
     },
     components: {
@@ -93,6 +99,9 @@
         if (day < 10) day = '0' + day
         current = today.getFullYear() + '-' + month + '-' + day
         return current
+      },
+      query () {
+        console.log(this.queryValue)
       }
     }
   }
@@ -144,6 +153,11 @@
       position: absolute;
       left: 510px;
       top: 12px;
+    }
+    .btn-query {
+      position: absolute;
+      left: 610px;
+      top: 6px;
     }
   }
 </style>
