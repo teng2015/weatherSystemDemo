@@ -34,10 +34,10 @@
 
       let baseLayers = {
         '电子地图': L.tileLayer('https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}', {
-          attribution: '卫星地图'
+          attribution: '电子地图'
         }),
         '卫星地图': L.tileLayer('https://www.google.cn/maps/vt?lyrs=y@189&gl=cn&x={x}&y={y}&z={z}', {
-          attribution: '电子地图'
+          attribution: '卫星地图'
         }).addTo(this.map)
       }
 

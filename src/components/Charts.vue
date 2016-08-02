@@ -1,18 +1,18 @@
 <template>
   <div class="chart-area" :class="{'incre-size': resize}">
     <div class="control">
-      <a class="control-resize" href="javascirpt:void(0)" @click="onRisize">
+      <a class="control-resize" href="javascript:void(0);" @click="onResize">
         <span class="glyphicon" :class="resizeIcon"></span>
       </a>
       <ul class="chart-tab">
-      <li class="tab-active"><a href="javascirpt:void(0)">气温</a></li>
-        <li><a href="javascirpt:void(0)">湿度</a></li>
-        <li><a href="javascirpt:void(0)">雨量</a></li>
-        <li><a href="javascirpt:void(0)">风力</a></li>
-        <li><a href="javascirpt:void(0)">气压</a></li>
+      <li class="tab-active"><a href="javascript:void(0);">气温</a></li>
+        <li><a href="javascript:void(0);">湿度</a></li>
+        <li><a href="javascript:void(0);">雨量</a></li>
+        <li><a href="javascript:void(0);">风力</a></li>
+        <li><a href="javascript:void(0);">气压</a></li>
       </ul>
     </div>
-    <div id="chart-content"></div>
+    <div id="chart"></div>
   </div>
 </template>
 
@@ -33,7 +33,7 @@
       }
     },
     methods: {
-      onRisize () {
+      onResize () {
         let that = this
         this.resize ? this.resize = false : this.resize = true
         setTimeout(function () {
@@ -42,7 +42,7 @@
       }
     },
     ready () {
-      this.myChart = echarts.init(document.getElementById('chart-content'))
+      this.myChart = echarts.init(document.getElementById('chart'))
       this.myChart.setOption({
         title: { text: '气温' },
         color: ['red'],
@@ -91,7 +91,7 @@
   }
   .incre-size {
     height: 500px;
-    box-shadow: 6px -2px 5px 5px rgba(0,0,0,0.5);
+    box-shadow: 6px -2px 4px 1px rgba(0,0,0,0.5);
 
   }
   .control {
@@ -151,7 +151,7 @@
     border: 0;
   }
 
-  #chart-content {
+  #chart {
     position: absolute;
     bottom: 0;
     width: 100%;

@@ -1,20 +1,19 @@
 <template>
   <div class="main-content">
     <ul class="area-tab">
-      <li><a v-link="{ path: '/index/table' }">实时统计表</a></li>
-      <li class="tab-active"><a v-link="{ path: '/index/map' }" >地图</a></li>
-      <li><a href="javascirpt:void(0);">雷达图</a></li>
-      <li><a href="javascirpt:void(0);">卫星云图</a></li>
+      <li class="tab-active"><a v-link="{ path: '/index/table' }">实时统计表</a></li>
+      <li><a v-link="{ path: '/index/map' }" >地图</a></li>
+      <li><a href="javascript:void(0);">雷达图</a></li>
+      <li><a href="javascript:void(0);">卫星云图</a></li>
     </ul>
     <div class="area">
-      <router-view  transion="fade" transion-mode="out-in"></router-view>
+      <router-view transion="fade" transion-mode="out-in"></router-view>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-
   }
 </script>
 

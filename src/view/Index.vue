@@ -1,22 +1,23 @@
 <template>
-  <forecast-modal></forecast-modal>
-  <admin-header></admin-header>
-  <div class="maincontainer">
-    <left-menu></left-menu>
-    <router-view  transion="fade" transion-mode="out-in"></router-view>
+  <div class="body">
+    <forecast-modal></forecast-modal>
+    <admin-header></admin-header>
+    <div class="maincontainer">
+      <left-menu></left-menu>
+      <router-view transion="fade" transion-mode="out-in"></router-view>
+    </div>
+    <footer>
+      <forecast-area></forecast-area>
+      <live-weather></live-weather>
+      <charts></charts>
+    </footer>
   </div>
-  <footer>
-    <forecast-area></forecast-area>
-    <live-weather></live-weather>
-    <charts></charts>
-  </footer>
 </template>
 
 <script>
 import 'leaflet/dist/leaflet.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'assets/style/reset.css'
-import store from './vuex/store.js'
 import AdminHeader from 'components/AdminHeader.vue'
 import LeftMenu from 'components/LeftMenu.vue'
 import ForecastArea from 'components/ForecastArea.vue'
@@ -25,7 +26,6 @@ import LiveWeather from 'components/LiveWeather.vue'
 import Charts from 'components/Charts.vue'
 
 export default {
-  store,
   components: {
     AdminHeader,
     LeftMenu,
@@ -65,11 +65,5 @@ export default {
     background:#eee;
     min-width:980px;
     overflow: visible;
-  }
-  .fade-transition {
-  transition: opacity .3s ease;
-  }
-  .fade-enter, .fade-leave {
-  opacity: 0;
   }
 </style>
