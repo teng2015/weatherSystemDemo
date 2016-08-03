@@ -60,7 +60,7 @@
       color: #c0bbb7;
       width: 100%;
       height: 55px;
-      line-height: 68px;
+      line-height: 55px;
       font-size: 18px;
       &:hover {
         background-color: #505050;
