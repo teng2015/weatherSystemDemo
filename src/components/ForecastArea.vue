@@ -4,6 +4,7 @@
       <h2>预报</h2>
     </div>
     <ul class="forecast">
+      <li><a href="javascript:void(0)" @click="">气象预警</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(0)">短临预报</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(1)">24小时预报</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(2)">48小时预报</a></li>
@@ -57,7 +58,7 @@
       display: inline-block;
       color: #c0bbb7;
       width: 100%;
-      height: 68px;
+      height: 55px;
       line-height: 68px;
       font-size: 18px;
       &:hover {

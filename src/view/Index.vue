@@ -1,6 +1,7 @@
 <template>
   <div class="body">
     <forecast-modal></forecast-modal>
+    <weather-warning></weather-warning>
     <admin-header></admin-header>
     <div class="maincontainer">
       <left-menu></left-menu>
@@ -22,6 +23,7 @@ import AdminHeader from 'components/AdminHeader.vue'
 import LeftMenu from 'components/LeftMenu.vue'
 import ForecastArea from 'components/ForecastArea.vue'
 import ForecastModal from 'components/ForecastModal.vue'
+import WeatherWarning from 'components/WeatherWarning.vue'
 import LiveWeather from 'components/LiveWeather.vue'
 import Charts from 'components/Charts.vue'
 
@@ -31,6 +33,7 @@ export default {
     LeftMenu,
     ForecastArea,
     ForecastModal,
+    WeatherWarning,
     LiveWeather,
     Charts
   }
