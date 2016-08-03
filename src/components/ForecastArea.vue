@@ -4,7 +4,7 @@
       <h2>预报</h2>
     </div>
     <ul class="forecast">
-      <li><a href="javascript:void(0)" @click="">气象预警</a></li>
+      <li><a href="javascript:void(0)" @click="openWeatherWarningModal">气象预警</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(0)">短临预报</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(1)">24小时预报</a></li>
       <li><a href="javascript:void(0)" @click="openForecastModal(2)">48小时预报</a></li>
@@ -14,11 +14,12 @@
 </template>
 
 <script>
-  import { openForecastModal } from '../vuex/actions.js'
+  import { openForecastModal, openWeatherWarningModal } from '../vuex/actions.js'
   export default {
     vuex: {
       actions: {
-        openForecastModal
+        openForecastModal,
+        openWeatherWarningModal
       }
     }
   }

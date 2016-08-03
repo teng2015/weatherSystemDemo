@@ -1,5 +1,8 @@
-// 打开或关闭预报框
+// 打开或关闭预报窗口
 export const FORECAST_MODAL_SHOW_HIDE = 'FORECAST_MODAL_SHOW_HIDE'
+
+// 打开或关闭预警窗口
+export const SHOW_HIDE_WEATHERWARNING_MODAL = 'SHOW_HIDE_WEATHERWARNING_MODAL'
 
 // 改变当前选中站点
 export const CHANGE_CURRENT_STATION = 'CHANGE_CURRENT_STATION'

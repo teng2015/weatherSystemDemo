@@ -8,6 +8,16 @@ export const closeForecastModal = ({dispatch}) => {
   dispatch('FORECAST_MODAL_SHOW_HIDE', false, 0)
 }
 
+// 打开预警窗口
+export const openWeatherWarningModal = ({dispatch}) => {
+  dispatch('SHOW_HIDE_WEATHERWARNING_MODAL', true)
+}
+
+// 关闭预警窗口
+export const closeWeatherWarningModal = ({dispatch}) => {
+  dispatch('SHOW_HIDE_WEATHERWARNING_MODAL', false)
+}
+
 // 切换当前所选站点
 export const changeCurrentStation = ({dispatch}, newStation) => {
   dispatch('CHANGE_CURRENT_STATION', newStation)

@@ -1,11 +1,11 @@
 <template>
-  <div class="mask-layer">
+  <div class="mask-layer" v-show="getWeatherWarningModalIsShow">
     <div class="warning-modal">
 
       <div class="warning-header">
         <h3>发布预警</h3>
         <div class="modal-close">
-          <a href="javascript:void(0)">X</a>
+          <a href="javascript:void(0)" @click="closeWeatherWarningModal">X</a>
         </div>
       </div>
 
@@ -40,6 +40,8 @@
 <script>
   import vSelect from 'vue-select'
   import warningInfo from 'assets/json/warningType.json'
+  import { getWeatherWarningModalIsShow } from '../vuex/getters.js'
+  import { closeWeatherWarningModal } from '../vuex/actions.js'
   export default {
     data () {
       return {
@@ -87,6 +89,14 @@
       },
       changeLevel (index) {
         this.currentLevel = index
+      }
+    },
+    vuex: {
+      getters: {
+        getWeatherWarningModalIsShow
+      },
+      actions: {
+        closeWeatherWarningModal
       }
     },
     components: {
