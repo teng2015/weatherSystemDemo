@@ -27,7 +27,7 @@
   }
   .header-content {
     color: #666;
-    width: 980px;
+    width: 1080px;
     margin: 0 auto;
     line-height: 60px;
     h1 {

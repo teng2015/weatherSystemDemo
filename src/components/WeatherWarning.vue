@@ -16,7 +16,7 @@
         </div>
         <div class="warning-content" v-show="currentWarningTab">
           <div class="row">
-            <div class="col-sm-3">选择预警级别:</div>
+            <div class="col-sm-3 warning-label">选择预警级别:</div>
             <div class="col-sm-2" v-for="item in currentLevelArray">
               <div class="radio">
                 <label>
@@ -26,10 +26,19 @@
               </div>
             </div>
           </div>
-          <img v-if="currentLevel" src="/static/images/warning/w{{parseIndex}}{{currentLevel}}.png" height="100px"></div>
+          <div v-if="currentLevel" class="row">
+            <div class="col-sm-3 pull-left">
+              <img :src="warningImg" height="100px">
+            </div>
+            <div class="col-sm-9 pull-right">
+              <p>附加信息：</p>
+              <textarea v-model="addInfo" class="form-control"></textarea>
+            </div>
+          </div>
       </div>
 
       <div class="warning-footer">
+        <!-- <a class="btn btn-primary btn-lg" href="javascript:void(0)">预览</a> -->
         <a class="btn btn-primary btn-lg" href="javascript:void(0)">发布</a>
       </div>
 
@@ -48,7 +57,8 @@
         currentWarningTab: null,
         allWarningTypeOps: warningInfo.type,
         warningLevel: warningInfo.level,
-        currentLevel: 0
+        currentLevel: 0,
+        addInfo: ''
       }
     },
     computed: {
@@ -68,7 +78,7 @@
           let temp = []
           if (typeof current !== 'number') {
             for (var i = 0; i < current.length; i++) {
-              temp.push({name: this.warningLevel[current[i]], index: i + 1})
+              temp.push({name: this.warningLevel[current[i]], index: i + 2})
             }
           } else {
             for (var j = 0; j < current; j++) {
@@ -81,6 +91,9 @@
       parseIndex () {
         let temp = this.currentWarningIndex + 1
         return temp < 10 ? '0' + temp : temp
+      },
+      warningImg () {
+        return '/static/images/warning/w' + this.parseIndex + this.currentLevel + '.png'
       }
     },
     methods: {
@@ -143,14 +156,19 @@
     .modal-close {
       position: absolute;
       top: 12px;
-      right: 20px;
+      right: 12px;
+      transition: all ease-out .3s;
+      &:hover {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+      }
       a {
+        display: block;
+        width: 25px;
         font-size: 18px;
         font-weight: bolder;
-        color: #000;
-        &:hover {
-          color: blue;
-        }
+        color: #929292;
+
       }
     }
   }
@@ -165,13 +183,25 @@
     .col-sm-6 {
       padding: 0;
     }
+    img {
+      margin-top: 5px;
+    }
   }
   .warning-content {
-    height: 100px;
-    background-color: #ccc;
+    
+  }
+  .warning-label {
+    line-height: 2.9em;
   }
   .warning-footer {
     text-align: center;
-    height: 60px;
+    height: 52px;
+    line-height: 52px;
+  }
+  textarea {
+    width: 460px;
+    height: 76px;
+    max-width: 460px;
+    max-height: 76px;
   }
 </style>
