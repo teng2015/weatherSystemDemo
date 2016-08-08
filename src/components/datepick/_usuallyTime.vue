@@ -20,7 +20,7 @@
 
 <script>
   import { selectTimeData } from 'assets/json/selectTimeData.js'
-  import { getSecondMonthDays, zero } from '../util/dateUtil.js'
+  import { getSecondMonthDays, zero } from '../../util/dateUtil.js'
   export default {
     props: {
       show: {
